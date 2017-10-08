@@ -1,5 +1,3 @@
-runtime macros/matchit.vim " enable to use % moving around def ... end function
-
 " Specify a directory for plugins 
 call plug#begin('~/.vim/plugged')
 
@@ -7,13 +5,11 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 
 " search find
+Plug 'rking/ag.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 
 " surrounding
 Plug 'tpope/vim-surround'
-
-" display tags in a window
-Plug 'majutsushi/tagbar'
 
 " search file global
 Plug 'dkprice/vim-easygrep'
@@ -24,12 +20,8 @@ Plug 'tpope/vim-repeat'
 " comment
 Plug 'tpope/vim-commentary'
 
-" rails theme
+" vim theme
 Plug 'altercation/vim-colors-solarized'
-" Plug 'morhetz/gruvbox'
-" Plug 'jpo/vim-railscasts-theme'
-
-Plug 'miyakogi/conoline'
 
 " rails plugin vim
 Plug 'tpope/vim-rails'
@@ -43,15 +35,26 @@ Plug 'tpope/vim-haml'
 " rails refactoring tool
 Plug 'ecomba/vim-ruby-refactoring'
 
+" Indent for jst/ejs syntax
+Plug 'briancollins/vim-jst'
+
+" CSS colors
+Plug 'ap/vim-css-color'
+
+" JSX syntax
+Plug 'mxw/vim-jsx'
+
+" RuboCop
+Plug 'ngmy/vim-rubocop'
+
+" Reek
+Plug 'rainerborene/vim-reek'
+
 " bundler
 Plug 'tpope/vim-bundler'
 
 " rspec
 Plug 'thoughtbot/vim-rspec'
-
-" custom text object for selecting ruby blocks
-Plug 'kana/vim-textobj-user'
-Plug 'nelstrom/vim-textobj-rubyblock'
 
 " javascript syntax
 Plug 'pangloss/vim-javascript'
@@ -69,6 +72,7 @@ Plug 'nikvdp/ejs-syntax'
 " git
 Plug 'tpope/vim-fugitive'
 
+" Vim sugar for the UNIX shell commands that need it the most
 Plug 'tpope/vim-eunuch'
 
 " SnipMate manage code snippets
@@ -78,40 +82,20 @@ Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 
 Plug 'vim-scripts/AutoComplPop'
-" Plug 'othree/html5.vim'
 Plug 'alvan/vim-closetag'
 
-" Indent for jst/ejs syntax
-Plug 'briancollins/vim-jst'
-
-" CSS colors
-Plug 'ap/vim-css-color'
-
-" JSX syntax
-Plug 'mxw/vim-jsx'
-
-" RuboCop
-Plug 'ngmy/vim-rubocop'
-" Reek
-Plug 'rainerborene/vim-reek'
-
-" Typescript syntax
-Plug 'leafgarland/typescript-vim'
-" Typescript tool
-" Plug 'Quramy/tsuquyomi'
-
-" Lean & mean status/tabline for vim that's light as air
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
+" Airline tabline/status
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Initialize plugin system
 call plug#end()
 
+" Enable theme
 syntax enable
 set background=dark
 " set background=light
 colorscheme solarized
-" colorscheme gruvbox
 
 " for intending
 filetype plugin indent on
@@ -132,12 +116,7 @@ set colorcolumn=80
 highlight Search cterm=NONE ctermfg=16 ctermbg=100
 
 " for ctags
-" set tags=tags;/
 set tags=./tags;
-" set tags=tags,./tags
-
-" set for clipboard
-set clipboard=unnamedplus
 
 set relativenumber 
 set ignorecase " Case insensitive pattern matching
@@ -146,6 +125,7 @@ set smartcase " Overrides ignorecase if pattern contains upcase
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
+" remapping leader character
 let mapleader = ","
 
 " Make CtrlP use ag for listing the files. Way faster and no useless files.
@@ -153,7 +133,11 @@ let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
 let g:ctrlp_use_caching = 0
 
 " Set default size window NERDTree
-let g:NERDTreeWinSize=40
+" let g:NERDTreeWinSize=40
+
+" Show hidden file NERDTree
+let NERDTreeShowHidden=0
+
 let g:javascript_plugin_jsdoc = 1
 
 " filenames like *.xml, *.html, *.xhtml, ...
@@ -170,9 +154,6 @@ nmap <Leader>ra :RuboCop -a<CR>
 
 " Allow JSX in normal JS files
 let g:jsx_ext_required = 0 
-
-" Show hidden file
-let NERDTreeShowHidden=0
 
 " RSpec.vim mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
@@ -192,11 +173,19 @@ nmap <leader>te :tabe %<cr>
 nmap <F8> :TagbarToggle<CR>
 map <C-n> :NERDTreeToggle<CR>
 map <leader>n :NERDTreeFind<CR>
+
+" set for clipboard
+set clipboard=unnamed
+if $TMUX == ''
+    set clipboard+=unnamed
+endif
+map <F1> :.!pbcopy<CR>
+map <F2> :.w !pbcopy<CR><CR>
+map <F3> :r !pbpaste<CR>
+
 vnoremap <Leader>c "*y
 vnoremap <Leader>x "*d
 vnoremap <Leader>p "*p
+
 " puts the caller for debug
 nnoremap <leader>wtf oputs "#{"#" * 90}BEGIN message"<cr>puts caller<cr>puts "#{"#" * 90}END message"<esc>
-
-" enable .ejs syntax
-" au BufNewFile,BufRead *.ejs set filetype=html
