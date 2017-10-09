@@ -123,3 +123,6 @@ alias lla='ls -la'
 
 # alias tmux="TERM=screen-256color-bce tmux"
 export TERM=xterm-256color
+
+# 10ms for key sequences
+KEYTIMEOUT=1

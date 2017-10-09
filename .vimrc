@@ -1,3 +1,5 @@
+runtime macros/matchit.vim
+
 " Specify a directory for plugins 
 call plug#begin('~/.vim/plugged')
 
@@ -22,12 +24,14 @@ Plug 'tpope/vim-commentary'
 
 " vim theme
 Plug 'altercation/vim-colors-solarized'
+Plug 'jpo/vim-railscasts-theme'
 
 " rails plugin vim
 Plug 'tpope/vim-rails'
 
 " ruby
 Plug 'vim-ruby/vim-ruby'
+Plug 'kana/vim-textobj-user'
 
 " haml, sass, scss
 Plug 'tpope/vim-haml'
@@ -95,7 +99,10 @@ call plug#end()
 syntax enable
 set background=dark
 " set background=light
+" colorscheme railscasts
 colorscheme solarized
+
+set timeoutlen=1000 ttimeoutlen=0
 
 " for intending
 filetype plugin indent on
