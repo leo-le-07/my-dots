@@ -112,8 +112,10 @@ set cursorcolumn
 highlight CursorLine gui=underline cterm=underline
 " highlight CursorColumn ctermbg=16
 set colorcolumn=80
+set hlsearch
 " highlight ColorColumn ctermbg=16
 highlight Search cterm=NONE ctermfg=16 ctermbg=100
+" hi Search guibg=Yellow guifg=Black ctermbg=Yellow ctermfg=Black
 
 " for ctags
 set tags=./tags;
@@ -177,7 +179,7 @@ map <leader>n :NERDTreeFind<CR>
 " set for clipboard
 set clipboard=unnamed
 if $TMUX == ''
-    set clipboard+=unnamed
+  set clipboard+=unnamed
 endif
 map <F1> :.!pbcopy<CR>
 map <F2> :.w !pbcopy<CR><CR>

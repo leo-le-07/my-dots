@@ -120,3 +120,6 @@ alias md='mina deploy --trace'
 alias ll='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
+
+# alias tmux="TERM=screen-256color-bce tmux"
+export TERM=xterm-256color
