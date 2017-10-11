@@ -30,7 +30,7 @@ Plug 'jpo/vim-railscasts-theme'
 Plug 'tpope/vim-rails'
 
 " ruby
-Plug 'vim-ruby/vim-ruby'
+" Plug 'vim-ruby/vim-ruby'
 Plug 'kana/vim-textobj-user'
 
 " haml, sass, scss
@@ -113,11 +113,15 @@ set shiftwidth=2
 " On pressing tab, insert 4 spaces
 set expandtab
 
-" Set hightlight current row and column
-set cursorline
-set cursorcolumn
-highlight CursorLine gui=underline cterm=underline
+" Set hightlight current row and column - SLOW_VIM
+" set cursorline
+" set cursorcolumn
+" highlight CursorLine gui=underline cterm=underline
 " highlight CursorColumn ctermbg=16
+" SLOW_VIM
+" set relativenumber 
+set number
+
 set colorcolumn=80
 set hlsearch
 " highlight ColorColumn ctermbg=16
@@ -127,7 +131,6 @@ highlight Search cterm=NONE ctermfg=16 ctermbg=100
 " for ctags
 set tags=./tags;
 
-set relativenumber 
 set ignorecase " Case insensitive pattern matching
 set smartcase " Overrides ignorecase if pattern contains upcase
 
