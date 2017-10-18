@@ -84,12 +84,23 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+
+# FOLDERS
+alias dev='cd ~/dev/'
+alias bp='cd ~/dev/bitpump/'
+alias ht='cd ~/dev/hipvan/hiptruck/'
+alias api='cd ~/dev/hipvan/HipvanServerAPI/'
+alias hv='cd ~/dev/hipvan/laclongquan/'
+alias vna='cd ~/dev/vnairline/'
+alias rp='cd ~/dev/react_pluralsight/'
+
 git_add_commit_push() {
   git add .
   git commit -m $1
   git push
 }
 
+# GIT
 alias gap=git_add_commit_push
 alias gal='git add .'
 alias gst='git status'
@@ -103,26 +114,34 @@ alias gb='git branch'
 alias gba='git branch -a'
 alias del='git branch -d'
 
+# RAILS / RUBY
 alias rc='rails c'
 alias rs='rails server'
 alias b='bundle install'
 alias bu='bundle update'
+alias rsvna='rails server -p 5000'
 
-alias dev='cd ~/dev/'
-alias bp='cd ~/dev/bitpump/'
-alias ht='cd ~/dev/hipvan/hiptruck/'
-alias api='cd ~/dev/hipvan/HipvanServerAPI/'
-alias hv='cd ~/dev/hipvan/laclongquan/'
-alias vna='cd ~/dev/vnairline/'
+# NPM
+alias ni='npm install'
 
-alias md='mina deploy --trace'
 
+# LIST FILES
 alias ll='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
 
-# alias tmux="TERM=screen-256color-bce tmux"
+# TMUX
+alias tn='tmux new -s'
+alias ta='tmux a -t'
+alias tl='tmux ls'
+
+# MISC
+alias md='mina deploy --trace' # deploy by mina
+
 export TERM=xterm-256color
 
 # 10ms for key sequences
 KEYTIMEOUT=1
+
+# For install capybara gem
+export PATH="$(brew --prefix qt@5.5)/bin:$PATH"

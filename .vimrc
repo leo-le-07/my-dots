@@ -89,8 +89,8 @@ Plug 'vim-scripts/AutoComplPop'
 Plug 'alvan/vim-closetag'
 
 " Airline tabline/status
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 
 " Initialize plugin system
 call plug#end()
@@ -118,9 +118,11 @@ set expandtab
 " set cursorcolumn
 " highlight CursorLine gui=underline cterm=underline
 " highlight CursorColumn ctermbg=16
-" SLOW_VIM
-" set relativenumber 
+" Set relative number line - SLOW_VIM
+set relativenumber
 set number
+" Fix slow vim when enable cursorline
+set lazyredraw
 
 set colorcolumn=80
 set hlsearch
