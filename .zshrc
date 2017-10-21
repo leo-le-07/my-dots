@@ -123,6 +123,7 @@ alias rsvna='rails server -p 5000'
 
 # NPM
 alias ni='npm install'
+alias ns='npm start'
 
 
 # LIST FILES

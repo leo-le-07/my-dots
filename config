@@ -1,0 +1,9 @@
+Host *
+ AddKeysToAgent yes
+ UseKeychain yes
+ IdentityFile ~/.ssh/id_rsa
+
+Host vna
+ HostName 13.228.73.24
+ User deploy
+ IdentityFile ~/.ssh/jenkins_test.pem
