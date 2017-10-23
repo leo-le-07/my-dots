@@ -93,6 +93,7 @@ alias api='cd ~/dev/hipvan/HipvanServerAPI/'
 alias hv='cd ~/dev/hipvan/laclongquan/'
 alias vna='cd ~/dev/vnairline/'
 alias rp='cd ~/dev/react_pluralsight/'
+alias cl='cd ~/dev/codelink/'
 
 git_add_commit_push() {
   git add .
@@ -135,6 +136,7 @@ alias lla='ls -la'
 alias tn='tmux new -s'
 alias ta='tmux a -t'
 alias tl='tmux ls'
+alias tk='tmux kill-session -t'
 
 # MISC
 alias md='mina deploy --trace' # deploy by mina

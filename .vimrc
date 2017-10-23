@@ -119,7 +119,7 @@ set expandtab
 " highlight CursorLine gui=underline cterm=underline
 " highlight CursorColumn ctermbg=16
 " Set relative number line - SLOW_VIM
-" set relativenumber
+set relativenumber
 set number
 " Fix slow vim when enable cursorline
 set lazyredraw
@@ -208,3 +208,5 @@ vnoremap <Leader>p "*p
 
 " puts the caller for debug
 nnoremap <leader>wtf oputs "#{"#" * 90}BEGIN message"<cr>puts caller<cr>puts "#{"#" * 90}END message"<esc>
+" debugger javascript
+nnoremap <leader>jd odebugger;<esc>
