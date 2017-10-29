@@ -23,6 +23,7 @@ Plug 'terryma/vim-multiple-cursors'
 
 " themes
 Plug 'iCyMind/NeoSolarized'
+Plug 'NLKNguyen/papercolor-theme'
 
 " search find
 Plug 'ctrlpvim/ctrlp.vim'
@@ -87,6 +88,8 @@ call plug#end()
 syntax enable
 set background=dark
 colorscheme NeoSolarized
+" set background=light
+" colorscheme PaperColor
 
 " for Shougo/deoplete.nvim plugin
 let g:deoplete#enable_at_startup = 1
@@ -136,6 +139,11 @@ function! Multiple_cursors_after()
     let b:deoplete_disable_auto_complete = 0
 endfunction
 
+" for vim-airline/vim-airline-themes for
+let g:airline_theme='papercolor'
+" let g:airline_theme='solarized'
+" let g:airline_solarized_bg='dark'
+
 " for neomake/neomake plugin
 autocmd! BufWritePost * Neomake
 let g:neomake_javascript_enabled_makers = ['eslint', 'flow']
@@ -146,6 +154,7 @@ let g:neomake_error_sign = {'text': '✖', 'texthl': 'ErrorMsg'}
 let g:neomake_warning_sign = {'text': '⚠','texthl': 'WarningMsg'}
 let g:neomake_message_sign = {'text': '➤','texthl': 'MessageMsg'}
 let g:neomake_info_sign = {'text': 'ℹ', 'texthl': 'InfoMsg'}
+
 " for flow and eslint
 function! StrTrim(txt)
   return substitute(a:txt, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')

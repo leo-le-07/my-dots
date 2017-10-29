@@ -87,13 +87,12 @@ source $ZSH/oh-my-zsh.sh
 
 # FOLDERS
 alias dev='cd ~/dev/'
+alias mydot='cd ~/dev/tmp/my-dots'
 alias bp='cd ~/dev/bitpump/'
-alias ht='cd ~/dev/hipvan/hiptruck/'
-alias api='cd ~/dev/hipvan/HipvanServerAPI/'
-alias hv='cd ~/dev/hipvan/laclongquan/'
 alias vna='cd ~/dev/vnairline/'
-alias rp='cd ~/dev/react_pluralsight/'
 alias cl='cd ~/dev/codelink/'
+alias webster='cd ~/dev/codelink/webster'
+alias webby='cd ~/dev/codelink/webby'
 
 git_add_commit_push() {
   git add .
