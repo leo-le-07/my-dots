@@ -125,6 +125,10 @@ alias rsvna='rails server -p 5000'
 alias ni='npm install'
 alias ns='npm start'
 
+# Docker
+alias d='docker'
+alias dc='docker-compose'
+alias dm='docker-machine'
 
 # LIST FILES
 alias ll='ls -l'
