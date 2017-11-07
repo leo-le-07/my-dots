@@ -35,6 +35,9 @@ Plug 'ludovicchabant/vim-gutentags'
 " realtime
 Plug 'skywind3000/asyncrun.vim'
 
+" codeclimate
+Plug 'wfleming/vim-codeclimate'
+
 " navigate seamlessly between vim and tmux splits using a consistent set of hotkeys
 Plug 'christoomey/vim-tmux-navigator'
 
@@ -201,9 +204,14 @@ set relativenumber
 set number
 set colorcolumn=80
 set hlsearch
+set ignorecase
+set smartcase
 highlight Search cterm=NONE ctermfg=16 ctermbg=100
 set list
 set tabstop=2 shiftwidth=2 expandtab
+
+" bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " Set hightlight current row and column - SLOW_VIM
 " set cursorline
