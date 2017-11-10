@@ -233,6 +233,15 @@ vnoremap <silent> y y:call ClipboardYank()<cr>
 vnoremap <silent> d d:call ClipboardYank()<cr>
 nnoremap <silent> p :call ClipboardPaste()<cr>p
 
+" for CtrlP plugin
+" (https://stackoverflow.com/questions/21017857/ctrlp-still-searches-the-ignored-directory#answer-23015387)
+if exists("g:ctrlp_user_command")
+  unlet g:ctrlp_user_command
+endif
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|coverage'
+" Make CtrlP use ag for listing the files. Way faster and no useless files.
+let g:ctrlp_use_caching = 0
+
 " The Silver Searcher
 if executable('ag')
   " Use ag over grep
