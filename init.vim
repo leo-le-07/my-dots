@@ -210,6 +210,13 @@ highlight Search cterm=NONE ctermfg=16 ctermbg=100
 set list
 set tabstop=2 shiftwidth=2 expandtab
 
+" setting cursor
+" let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+" set termguicolors
+" highlight Cursor guifg=white guibg=black
+" highlight iCursor guifg=white guibg=steelblue
+" set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
+
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
@@ -251,3 +258,9 @@ if executable('ag')
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
+
+
+" === BEGINNING alias 
+" console.log
+nnoremap <leader>cl oconsole.log('');<esc>
+" === END alias 
