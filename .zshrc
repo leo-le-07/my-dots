@@ -1,13 +1,16 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+export PATH=/usr/local/bin:$PATH
+
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/leo/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
+# ZSH_THEME="agnoster"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -93,6 +96,10 @@ alias vna='cd ~/dev/vnairline/'
 alias cl='cd ~/dev/codelink/'
 alias webster='cd ~/dev/codelink/webster'
 alias webby='cd ~/dev/codelink/webby'
+alias weaver='cd ~/dev/codelink/weaver'
+alias papi='cd ~/dev/codelink/papi'
+alias mami='cd ~/dev/codelink/mami'
+alias codelink='cd ~/dev/codelink'
 
 git_add_commit_push() {
   git add .
@@ -129,6 +136,14 @@ alias ns='npm start'
 alias d='docker'
 alias dc='docker-compose'
 alias dm='docker-machine'
+alias devtestall='docker-compose run --rm dev npm run testall'
+
+# Jest test
+alias testsingle='jest --coverage=false'
+alias testall='npm run testall'
+
+# Python
+alias pstart='python manage.py runserver'
 
 # LIST FILES
 alias ll='ls -l'
@@ -151,3 +166,15 @@ KEYTIMEOUT=1
 
 # For install capybara gem
 export PATH="$(brew --prefix qt@5.5)/bin:$PATH"
+
+# Pure prompt
+autoload -U promptinit; promptinit
+prompt pure
+
+# export nvm_dir="$home/.nvm"
+# [ -s "$nvm_dir/nvm.sh" ] && \. "$nvm_dir/nvm.sh"
+
+# fzf config
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='ag -g ""' # ignore node_modules
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
