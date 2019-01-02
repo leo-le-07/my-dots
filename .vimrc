@@ -100,7 +100,7 @@ syntax enable
 set background=dark
 " set background=light
 " colorscheme railscasts
-colorscheme solarized
+" colorscheme solarized
 
 set timeoutlen=1000 ttimeoutlen=0
 
