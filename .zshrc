@@ -100,6 +100,7 @@ alias weaver='cd ~/dev/codelink/weaver'
 alias papi='cd ~/dev/codelink/papi'
 alias mami='cd ~/dev/codelink/mami'
 alias codelink='cd ~/dev/codelink'
+alias mql4='cd ~/dev/tmp/mq4-collections'
 
 git_add_commit_push() {
   git add .
@@ -120,6 +121,7 @@ alias gd='git diff'
 alias gb='git branch'
 alias gba='git branch -a'
 alias del='git branch -d'
+alias gmaster='git checkout master && git pull'
 
 # RAILS / RUBY
 alias rc='rails c'
