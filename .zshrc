@@ -18,6 +18,8 @@ POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='red'
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs newline)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time)
 
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=cyan"
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
@@ -76,7 +78,7 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
