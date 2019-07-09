@@ -1,0 +1,26 @@
+## Use for SSH configuration
+
+# leo-le-07
+Host github.com
+HostName github.com
+AddKeysToAgent yes
+UseKeychain yes
+IdentityFile ~/.ssh/id_rsa
+
+# hiep codelink
+Host github.com-hiep
+HostName github.com
+User git
+IdentityFile ~/.ssh/id_rsa_hiep
+
+# huy codelink
+Host github.com-huy
+HostName github.com
+User git
+IdentityFile ~/.ssh/id_rsa_huynvk
+
+# mr-leo
+Host gitlab.com
+Preferredauthentications publickey
+IdentityFile ~/.ssh/id_ed25519_mr_leo
+
