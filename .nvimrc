@@ -24,6 +24,8 @@ Plug 'terryma/vim-multiple-cursors'
 " themes
 Plug 'iCyMind/NeoSolarized'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'mhartington/oceanic-next'
+Plug 'crusoexia/vim-monokai'
 
 " fzf
 Plug '/usr/local/opt/fzf'
@@ -31,6 +33,9 @@ Plug 'junegunn/fzf.vim'
 
 " flowtype
 Plug 'flowtype/vim-flow'
+
+" typescript
+Plug 'leafgarland/typescript-vim'
 
 " search find
 Plug 'ctrlpvim/ctrlp.vim'
@@ -72,6 +77,9 @@ Plug 'grvcoelho/vim-javascript-snippets'
 " highlighting and indenting for JSX
 Plug 'mxw/vim-jsx'
 
+" vue
+Plug 'posva/vim-vue'
+
 " ejs syntax
 Plug 'nikvdp/ejs-syntax'
 
@@ -107,11 +115,15 @@ call plug#end()
 let g:fzf_layout = { 'down': '~40%' }
 
 " themes / colors
+if (has("termguicolors"))
+ set termguicolors
+endif
 syntax enable
-" set background=dark
-" colorscheme NeoSolarized
+
 let g:dracula_italic=0
 colorscheme dracula
+" colorscheme OceanicNext
+" colorscheme monokai
 
 " for Shougo/deoplete.nvim plugin
 let g:deoplete#enable_at_startup = 1
@@ -178,9 +190,9 @@ if executable(local_flow)
 endif
 
 " for vim-airline/vim-airline-themes for
-let g:airline_theme='papercolor'
+" let g:airline_theme='oceanicnext'
 " let g:airline_theme='solarized'
-" let g:airline_solarized_bg='dark'
+let g:airline_solarized_bg='dark'
 
 " for neomake/neomake plugin
 autocmd! BufWritePost * Neomake
