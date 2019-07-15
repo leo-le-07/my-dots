@@ -28,8 +28,7 @@ Plug 'mhartington/oceanic-next'
 Plug 'crusoexia/vim-monokai'
 
 " fzf
-Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " flowtype
 Plug 'flowtype/vim-flow'
@@ -112,7 +111,8 @@ Plug 'vobornik/vim-mql4'
 call plug#end()
 
 " fzf configuration
-let g:fzf_layout = { 'down': '~40%' }
+nnoremap <silent> <leader>f :FZF<cr>
+nnoremap <silent> <leader>F :FZF ~<cr>
 
 " themes / colors
 if (has("termguicolors"))
@@ -133,13 +133,20 @@ let deoplete#tag#cache_limit_size = 5000000
 
 " for LanguageClient-neovim plugin
 let g:LanguageClient_serverCommands = {
-\ 'javascript': ['flow-language-server', '--try-flow-bin', '--stdio'],
-\ 'javascript.jsx': ['flow-language-server', '--try-flow-bin', '--stdio'],
+  \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
+  \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+  \ 'python': ['/usr/local/bin/pyls'],
+  \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
 \ }
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+" Or map each action separately
 let g:LanguageClient_autoStart = 1
-au FileType javascript nnoremap <silent> <c-]> :call LanguageClient_textDocument_definition()<cr>
-au FileType javascript nnoremap <silent> <leader>rn :call LanguageClient_textDocument_rename()<cr>
-let g:LanguageClient_diagnosticsList='location'
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+" au FileType javascript nnoremap <silent> <c-]> :call LanguageClient_textDocument_definition()<cr>
+" au FileType javascript nnoremap <silent> <leader>rn :call LanguageClient_textDocument_rename()<cr>
+" let g:LanguageClient_diagnosticsList='location'
 
 " for pangloss/vim-javascript plugin
 let g:javascript_plugin_jsdoc = 1
