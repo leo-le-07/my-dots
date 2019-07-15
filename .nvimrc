@@ -55,6 +55,7 @@ Plug 'christoomey/vim-tmux-navigator'
 " asynchronous keyword completion system in the current buffer
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'w0rp/ale'
 
 " repeat
 Plug 'tpope/vim-repeat'
@@ -62,7 +63,7 @@ Plug 'tpope/vim-repeat'
 " this makes font tmux and vim error - fix later
 " Plug 'edkolev/tmuxline.vim'
 
-" === BEGINNING javascript pluggins 
+" === BEGINNING javascript pluggins
 " syntax highlighting and impoved indentation javascript
 Plug 'pangloss/vim-javascript'
 Plug 'crusoexia/vim-javascript-lib'
@@ -82,8 +83,6 @@ Plug 'posva/vim-vue'
 " ejs syntax
 Plug 'nikvdp/ejs-syntax'
 
-" asynchronously run programs
-Plug 'neomake/neomake'
 " END javascript pluggins
 
 " === BEGINNING ruby / rails pluggins
@@ -255,6 +254,29 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 
+" for ale
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['prettier', 'tslint', 'eslint'],
+\}
+" Set this variable to 1 to fix files when you save them.
+let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
+let g:ale_linters = {'vue': ['eslint', 'vls']}
+let g:ale_fix_on_save = 1
+let g:ale_sign_error = '✖'
+let g:ale_sign_warning = '⚠'
+let g:ale_sign_info = 'ℹ'
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+" Uncomment 2 following commands in order to auto reload file changed
+" after 4 s of inactivity in normal mode
+" set autoread
+" au CursorHold * checktime
 
 " for pangloss/vim-javascript plugin
 let g:javascript_plugin_jsdoc = 1
@@ -308,34 +330,6 @@ endif
 " let g:airline_theme='oceanicnext'
 " let g:airline_theme='solarized'
 let g:airline_solarized_bg='dark'
-
-" for neomake/neomake plugin
-autocmd! BufWritePost * Neomake
-let g:neomake_javascript_enabled_makers = ['eslint', 'flow']
-let g:neomake_jsx_enabled_makers = ['eslint', 'flow']
-let g:neomake_java_enabled_makers = []
-let g:neomake_open_list = 0
-let g:neomake_error_sign = {'text': '✖', 'texthl': 'ErrorMsg'}
-let g:neomake_warning_sign = {'text': '⚠','texthl': 'WarningMsg'}
-let g:neomake_message_sign = {'text': '➤','texthl': 'MessageMsg'}
-let g:neomake_info_sign = {'text': 'ℹ', 'texthl': 'InfoMsg'}
-
-" for flow and eslint
-function! StrTrim(txt)
-  return substitute(a:txt, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
-endfunction
-
-let g:flow_path = StrTrim(system('PATH=$(npm bin):$PATH && which flow'))
-if g:flow_path != 'flow not found'
-"  let g:deoplete#sources#flow#flow_bin = g:flow_path
-  let g:neomake_javascript_flow_exe = g:flow_path
-"  let g:flow#flowpath = g:flow_path
-endif
-
-let g:eslint_path = StrTrim(system('PATH=$(npm bin):$PATH && which eslint'))
-if g:eslint_path != 'eslint not found'
-  let g:neomake_javascript_eslint_exe = g:eslint_path
-endif
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -421,7 +415,7 @@ if executable('ag')
 endif
 
 
-" === BEGINNING alias 
+" === BEGINNING alias
 " console.log
 nnoremap <leader>cl oconsole.log('');<esc>
-" === END alias 
+" === END alias
