@@ -22,9 +22,7 @@ Plug 'tpope/vim-endwise'
 Plug 'terryma/vim-multiple-cursors'
 
 " themes
-Plug 'iCyMind/NeoSolarized'
 Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'mhartington/oceanic-next'
 Plug 'crusoexia/vim-monokai'
 
 " fzf
@@ -119,10 +117,11 @@ if (has("termguicolors"))
 endif
 syntax enable
 
-let g:dracula_italic=0
-colorscheme dracula
-" colorscheme OceanicNext
-" colorscheme monokai
+" let g:dracula_italic=0
+" colorscheme dracula
+" colorscheme NeoSolarized
+colorscheme monokai
+let g:molokai_original = 1
 
 " for Shougo/deoplete.nvim plugin
 let g:deoplete#enable_at_startup = 1
@@ -327,7 +326,8 @@ if executable(local_flow)
 endif
 
 " for vim-airline/vim-airline-themes for
-let g:airline_theme='cobalt2'
+" let g:airline_theme='cobalt2'
+let g:airline_theme='term'
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
