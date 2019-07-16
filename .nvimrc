@@ -327,9 +327,7 @@ if executable(local_flow)
 endif
 
 " for vim-airline/vim-airline-themes for
-" let g:airline_theme='oceanicnext'
-" let g:airline_theme='solarized'
-let g:airline_solarized_bg='dark'
+let g:airline_theme='cobalt2'
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
