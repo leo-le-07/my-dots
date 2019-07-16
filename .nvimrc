@@ -10,10 +10,10 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 
 " surround
-Plug 'tpope/vim-surround'
+" Plug 'tpope/vim-surround'
 
 " automatic closing of quotes, parenthesis, brackets, etc.
-Plug 'Raimondi/delimitMate'
+" Plug 'Raimondi/delimitMate'
 
 " helps to end certain structures automatically
 Plug 'tpope/vim-endwise'
@@ -24,6 +24,7 @@ Plug 'terryma/vim-multiple-cursors'
 " themes
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'crusoexia/vim-monokai'
+Plug 'NLKNguyen/papercolor-theme'
 
 " fzf
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -120,8 +121,12 @@ syntax enable
 " let g:dracula_italic=0
 " colorscheme dracula
 " colorscheme NeoSolarized
-colorscheme monokai
-let g:molokai_original = 1
+
+" colorscheme monokai
+" let g:molokai_original = 1
+
+set background=light
+colorscheme PaperColor
 
 " for Shougo/deoplete.nvim plugin
 let g:deoplete#enable_at_startup = 1
@@ -197,8 +202,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
 
 " Remap for format selected region
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+" xmap <leader>f  <Plug>(coc-format-selected)
+" nmap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
@@ -327,7 +332,8 @@ endif
 
 " for vim-airline/vim-airline-themes for
 " let g:airline_theme='cobalt2'
-let g:airline_theme='term'
+" let g:airline_theme='term'
+let g:airline_theme='papercolor'
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
