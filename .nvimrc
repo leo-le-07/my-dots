@@ -112,6 +112,7 @@ if (has("termguicolors"))
  set termguicolors
 endif
 syntax enable
+let g:one_allow_italics = 1
 
 " let g:dracula_italic=0
 " colorscheme dracula
@@ -122,6 +123,9 @@ syntax enable
 
 set background=light
 colorscheme PaperColor
+
+" set background=light
+" colorscheme one
 
 " === for coc.nvim configuration ===
 " if hidden is not set, TextEdit might fail.
@@ -188,7 +192,7 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
+nmap <leader>en <Plug>(coc-rename)
 
 " Remap for format selected region
 " xmap <leader>f  <Plug>(coc-format-selected)
@@ -301,6 +305,7 @@ set runtimepath+=expand('~/.vim/vim-mql4')
 " let g:airline_theme='cobalt2'
 " let g:airline_theme='term'
 let g:airline_theme='papercolor'
+" let g:airline_theme='one'
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
