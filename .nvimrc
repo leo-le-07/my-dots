@@ -29,6 +29,7 @@ Plug 'rakr/vim-one'
 
 " fzf
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " typescript
 Plug 'leafgarland/typescript-vim'
