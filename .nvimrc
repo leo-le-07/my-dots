@@ -25,12 +25,10 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'crusoexia/vim-monokai'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'rakr/vim-one'
 
 " fzf
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
-" flowtype
-Plug 'flowtype/vim-flow'
 
 " typescript
 Plug 'leafgarland/typescript-vim'
@@ -45,14 +43,10 @@ Plug 'ludovicchabant/vim-gutentags'
 " realtime
 Plug 'skywind3000/asyncrun.vim'
 
-" codeclimate
-Plug 'wfleming/vim-codeclimate'
-
 " navigate seamlessly between vim and tmux splits using a consistent set of hotkeys
 Plug 'christoomey/vim-tmux-navigator'
 
 " asynchronous keyword completion system in the current buffer
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'w0rp/ale'
 
@@ -128,12 +122,6 @@ syntax enable
 set background=light
 colorscheme PaperColor
 
-" for Shougo/deoplete.nvim plugin
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#file#enable_buffer_path = 1
-let g:deoplete#enable_smart_case = 1
-let deoplete#tag#cache_limit_size = 5000000
-
 " === for coc.nvim configuration ===
 " if hidden is not set, TextEdit might fail.
 set hidden
@@ -160,7 +148,7 @@ inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -172,7 +160,7 @@ inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Use `[c` and `]c` to navigate diagnostics
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
@@ -274,8 +262,8 @@ let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
+" nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+" nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 " Uncomment 2 following commands in order to auto reload file changed
 " after 4 s of inactivity in normal mode
@@ -305,30 +293,8 @@ let g:multi_cursor_prev_key='<C-p>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
 
-" for vim-multiple-cursors works with neocomplete plugin
-function! Multiple_cursors_before()
-    let b:deoplete_disable_auto_complete = 1
-endfunction
-
-function! Multiple_cursors_after()
-    let b:deoplete_disable_auto_complete = 0
-endfunction
-
-" vim-flow configurations
-let g:flow#enable = 0
-let g:flow#showquickfix = 1
-
 " run time path
 set runtimepath+=expand('~/.vim/vim-mql4')
-
-" Use locally installed flow
-let local_flow = finddir('node_modules', '.;') . '/.bin/flow'
-if matchstr(local_flow, "^\/\\w") == ''
-    let local_flow= getcwd() . "/" . local_flow
-endif
-if executable(local_flow)
-  let g:flow#flowpath = local_flow
-endif
 
 " for vim-airline/vim-airline-themes for
 " let g:airline_theme='cobalt2'
