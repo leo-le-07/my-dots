@@ -24,3 +24,8 @@ Host gitlab.com
 Preferredauthentications publickey
 IdentityFile ~/.ssh/id_ed25519_mr_leo
 
+# leo apply digital bitbucket
+Host bitbucket.org
+UseKeychain yes
+HostName bitbucket.org
+IdentityFile ~/.ssh/id_rsa_bb_leo_ad

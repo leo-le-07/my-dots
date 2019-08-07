@@ -150,6 +150,9 @@ alias ta='tmux a -t'
 alias tl='tmux ls'
 alias tk='tmux kill-session -t'
 
+# Apply Digital
+alias ad_data_layer='rm -rf ../zo-react-native/node_modules/zo-data-layer && mkdir -p ../zo-react-native/node_modules/zo-data-layer && yarn && yarn build && tar -xvf release.tar.gz -C ../zo-react-native/node_modules/zo-data-layer'
+
 # 10ms for key sequences
 KEYTIMEOUT=1
 
@@ -158,5 +161,8 @@ KEYTIMEOUT=1
 export FZF_DEFAULT_COMMAND='ag -g ""' # ignore node_modules
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-export PATH=~/.local/bin:$PATH
+# export PATH=~/.local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+export NVM_DIR="/Users/$USER/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

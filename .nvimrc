@@ -165,7 +165,7 @@ inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
-" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Use `[c` and `]c` to navigate diagnostics
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
@@ -254,7 +254,7 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 " for ale
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['prettier', 'tslint', 'eslint'],
+\   'javascript': ['eslint'],
 \}
 " Set this variable to 1 to fix files when you save them.
 let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
