@@ -151,7 +151,7 @@ alias tl='tmux ls'
 alias tk='tmux kill-session -t'
 
 # Apply Digital
-alias ad_data_layer='rm -rf ../zo-react-native/node_modules/zo-data-layer && mkdir -p ../zo-react-native/node_modules/zo-data-layer && yarn && yarn build && tar -xvf release.tar.gz -C ../zo-react-native/node_modules/zo-data-layer'
+alias zo_data_layer='rm -rf ../zo-react-native/node_modules/zo-data-layer && mkdir -p ../zo-react-native/node_modules/zo-data-layer && yarn && yarn build && tar -xvf release.tar.gz -C ../zo-react-native/node_modules/zo-data-layer && gco release.tar.gz'
 
 # 10ms for key sequences
 KEYTIMEOUT=1
