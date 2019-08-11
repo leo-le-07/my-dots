@@ -25,6 +25,7 @@ Plug 'scrooloose/nerdcommenter'
 " themes
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'rakr/vim-one'
 
 " tag
 Plug 'ludovicchabant/vim-gutentags'
@@ -61,9 +62,14 @@ endif
 syntax enable
 let g:one_allow_italics = 1
 
+" === === enable dark theme
 set background=dark
 let g:dracula_italic=0
 colorscheme dracula
+
+" === === enable light theme
+" set background=light
+" colorscheme one
 
 " === end THEMS/COLORS
 
