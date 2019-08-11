@@ -76,12 +76,14 @@ command! -bang -nargs=* Rg
   \   <bang>0)
 nnoremap <C-Space> :Files<Cr>
 nnoremap <C-f> :Rg<Cr>
+nnoremap K :Rg! <C-R><C-W><CR>
 
 " === end fzf
 
 " === coc.nvim
 set hidden
 set cmdheight=2
+
 " use <tab> for trigger completion and navigate to next complete item
 function! s:check_back_space() abort
   let col = col('.') - 1
