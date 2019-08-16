@@ -35,6 +35,9 @@ Plug 'christoomey/vim-tmux-navigator'
 " repeat
 Plug 'tpope/vim-repeat'
 
+" easy-motion
+Plug 'easymotion/vim-easymotion'
+
 " syntax highlighting and impoved indentation javascript
 Plug 'pangloss/vim-javascript'
 Plug 'crusoexia/vim-javascript-lib'
@@ -134,6 +137,9 @@ nmap <leader>rn <Plug>(coc-rename)
 
 " === end coc.nvim
 
+" === easymotion
+nmap <Leader>f <Plug>(easymotion-bd-w)
+
 " === pangloss/vim-javascript plugin
 let g:javascript_plugin_flow = 1
 
@@ -150,6 +156,10 @@ let g:gitgutter_map_keys = 0 " remove mapping keys vim-gitgutter
 " === vim-airline/vim-airline-themes
 " let g:airline_theme='cobalt2'
 let g:airline_theme='papercolor'
+
+" === vim-airline
+" hide branch
+let g:airline#extensions#branch#enabled = 0
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
