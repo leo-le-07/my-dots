@@ -68,6 +68,8 @@ let g:one_allow_italics = 1
 set background=dark
 let g:dracula_italic=0
 colorscheme dracula
+" === === background transparency
+hi Normal ctermbg=NONE guibg=NONE
 
 " === === enable light theme
 " set background=light
