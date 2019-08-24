@@ -45,8 +45,11 @@ Plug 'crusoexia/vim-javascript-lib'
 " highlighting and indenting for JSX
 Plug 'mxw/vim-jsx'
 
-" vue
+" vue syntax
 Plug 'posva/vim-vue'
+
+" typescript syntax
+Plug 'leafgarland/typescript-vim'
 
 " git
 Plug 'tpope/vim-fugitive'
@@ -130,9 +133,6 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-
-" Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
@@ -226,3 +226,8 @@ vnoremap <silent> d d:call ClipboardYank()<cr>
 nnoremap <silent> p :call ClipboardPaste()<cr>p
 
 " === end Clipboard
+
+" === Shortcuts
+" === === This unsets the "last search pattern" register by hitting return
+nnoremap <CR> :noh<CR><CR>
+

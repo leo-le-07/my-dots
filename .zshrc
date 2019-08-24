@@ -162,10 +162,6 @@ alias ta='tmux a -t'
 alias tl='tmux ls'
 alias tk='tmux kill-session -t'
 
-# Apply Digital
-alias zo_data_react_native='rm -rf ~/dev/codelink/zo-react-native/node_modules/zo-data-layer && mkdir -p ~/dev/codelink/zo-react-native/node_modules/zo-data-layer && npm i && npm run build && tar -xvf release.tar.gz -C ~/dev/codelink/zo-react-native/node_modules/zo-data-layer'
-alias zo_data_cms='rm -rf ~/dev/codelink/zo-enterprise-cms/node_modules/zo-data-layer && mkdir -p ~/dev/codelink/zo-enterprise-cms/node_modules/zo-data-layer && npm i && npm run build && tar -xvf release.tar.gz -C ~/dev/codelink/zo-enterprise-cms/node_modules/zo-data-layer'
-
 export NVM_DIR="/Users/$USER/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
