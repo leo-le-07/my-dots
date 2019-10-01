@@ -49,7 +49,8 @@ Plug 'mxw/vim-jsx'
 Plug 'posva/vim-vue'
 
 " typescript syntax
-Plug 'leafgarland/typescript-vim'
+" Plug 'leafgarland/typescript-vim'
+Plug 'HerringtonDarkholme/yats.vim'
 
 " git
 Plug 'tpope/vim-fugitive'
@@ -87,7 +88,7 @@ command! -bang -nargs=* Rg
   \   <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:60%')
   \           : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '?'),
   \   <bang>0)
-nnoremap <C-Space> :Files<Cr>
+nnoremap <C-p> :Files<Cr>
 nnoremap <C-e> :History<Cr>
 nnoremap <C-b> :Buffers<Cr>
 nnoremap <C-f> :Rg<Cr>
@@ -229,5 +230,5 @@ nnoremap <silent> p :call ClipboardPaste()<cr>p
 
 " === Shortcuts
 " === === This unsets the "last search pattern" register by hitting return
-nnoremap <CR> :noh<CR><CR>
+nnoremap <CR> :noh<CR>
 
