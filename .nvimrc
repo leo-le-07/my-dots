@@ -52,6 +52,12 @@ Plug 'posva/vim-vue'
 " Plug 'leafgarland/typescript-vim'
 Plug 'HerringtonDarkholme/yats.vim'
 
+" ruby (rails)
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-endwise'
+
+Plug 'alvan/vim-closetag'
+
 " git
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -123,7 +129,7 @@ inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Use `[c` and `]c` to navigate diagnostics
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
@@ -155,6 +161,9 @@ let g:NERDSpaceDelims = 1
 " === airblade/vim-gitgutter
 let g:gitgutter_max_signs = 500
 let g:gitgutter_map_keys = 0 " remove mapping keys vim-gitgutter
+
+" === alvan/vim-closetag
+let g:closetag_filenames = "*.html.erb,*.html,*.xhtml,*.phtml"
 
 " === vim-airline/vim-airline-themes
 " let g:airline_theme='cobalt2'
