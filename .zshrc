@@ -162,8 +162,18 @@ alias ta='tmux a -t'
 alias tl='tmux ls'
 alias tk='tmux kill-session -t'
 
-export NVM_DIR="/Users/$USER/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+# DOCKER
+alias dcl='docker container ls'
+alias dil='docker image ls'
+alias dcp='docker container prune'
+alias dip='docker image prune'
+alias dir='docker image rm'
+alias dcrm='docker container rm'
+alias dcs='docker container stop'
+alias dcr='docker-compose run --rm'
+
+# export NVM_DIR="/Users/$USER/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
