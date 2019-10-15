@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=/usr/local/opt/libpq/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/leo/.oh-my-zsh"
@@ -9,14 +10,16 @@ export ZSH="/Users/leo/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
-ZSH_THEME=powerlevel9k/powerlevel9k
+ZSH_THEME='powerlevel9k/powerlevel9k'
 
 POWERLEVEL9K_TIME_FORMAT='%D{%H:%M}'
 POWERLEVEL9K_MODE='nerdfont-complete'
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=false
 POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='red'
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs newline status)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(ram time)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir newline status)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vcs ram)
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+POWERLEVEL9K_SHORTEN_STRATEGY=truncate_folders
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=grey"
 
@@ -79,7 +82,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=grey"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting docker docker-compose)
-plugins+=( node npm fzf )
+plugins+=( nvm node npm fzf )
 
 source $ZSH/oh-my-zsh.sh
 
@@ -174,7 +177,7 @@ alias dcr='docker-compose run --rm'
 
 # export NVM_DIR="/Users/$USER/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-source $(brew --prefix nvm)/nvm.sh
+# source $(brew --prefix nvm)/nvm.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
