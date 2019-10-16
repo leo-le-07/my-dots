@@ -79,7 +79,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=grey"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting docker docker-compose)
-plugins+=( node npm fzf )
+plugins+=( nvm node npm fzf )
 
 source $ZSH/oh-my-zsh.sh
 
