@@ -1,6 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=/usr/local/opt/libpq/bin:$PATH
+export PATH=$HOME/.yarn/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/leo/.oh-my-zsh"
@@ -168,8 +169,8 @@ alias tk='tmux kill-session -t'
 # DOCKER
 alias dcl='docker container ls'
 alias dil='docker image ls'
-alias dcp='docker container prune'
-alias dip='docker image prune'
+alias dcp='docker container prune -f'
+alias dip='docker image prune -f'
 alias dir='docker image rm'
 alias dcrm='docker container rm'
 alias dcs='docker container stop'
