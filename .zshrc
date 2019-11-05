@@ -12,7 +12,8 @@ export ZSH="/Users/leo/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
-ZSH_THEME='powerlevel9k/powerlevel9k'
+ZSH_THEME='powerlevel10k/powerlevel10k'
+# ZSH_THEME='powerlevel9k/powerlevel9k'
 
 POWERLEVEL9K_TIME_FORMAT='%D{%H:%M}'
 POWERLEVEL9K_MODE='nerdfont-complete'
