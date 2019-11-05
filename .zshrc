@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.nvm/versions/node/v.10.16.0/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/leo/.oh-my-zsh"
@@ -79,7 +80,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=grey"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting docker docker-compose)
-plugins+=( nvm node npm fzf )
+plugins+=( fzf )
 
 source $ZSH/oh-my-zsh.sh
 
@@ -165,15 +166,17 @@ alias tk='tmux kill-session -t'
 # DOCKER
 alias dcl='docker container ls'
 alias dil='docker image ls'
-alias dcp='docker container prune'
-alias dip='docker image prune'
+alias dcp='docker container prune -f'
+alias dip='docker image prune -f'
 alias dir='docker image rm'
 alias dcrm='docker container rm'
 alias dcs='docker container stop'
-alias dcr='docker-compose run --rm'
+alias dcr='docker run --rm'
 
 # export NVM_DIR="/Users/$USER/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
