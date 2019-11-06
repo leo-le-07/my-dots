@@ -25,6 +25,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'rakr/vim-one'
+Plug 'haishanh/night-owl.vim'
 
 " tag
 Plug 'ludovicchabant/vim-gutentags'
@@ -75,9 +76,11 @@ syntax enable
 let g:one_allow_italics = 1
 
 " === === enable dark theme
-set background=dark
-let g:dracula_italic=0
-colorscheme dracula
+" set background=dark
+" let g:dracula_italic=0
+" colorscheme dracula
+colorscheme night-owl
+let g:lightline = { 'colorscheme': 'nightowl' }
 " === === background transparency
 hi Normal ctermbg=NONE guibg=NONE
 
