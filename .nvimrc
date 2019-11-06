@@ -79,8 +79,11 @@ let g:one_allow_italics = 1
 " set background=dark
 " let g:dracula_italic=0
 " colorscheme dracula
+
 colorscheme night-owl
+" To enable the lightline theme
 let g:lightline = { 'colorscheme': 'nightowl' }
+
 " === === background transparency
 hi Normal ctermbg=NONE guibg=NONE
 
