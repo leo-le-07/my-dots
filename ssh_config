@@ -7,25 +7,7 @@ AddKeysToAgent yes
 UseKeychain yes
 IdentityFile ~/.ssh/id_rsa
 
-# hiep codelink
-Host github.com-hiep
-HostName github.com
-User git
-IdentityFile ~/.ssh/id_rsa_hiep
-
-# huy codelink
-Host github.com-huy
-HostName github.com
-User git
-IdentityFile ~/.ssh/id_rsa_huynvk
-
-# mr-leo
-Host gitlab.com
-Preferredauthentications publickey
-IdentityFile ~/.ssh/id_ed25519_mr_leo
-
-# leo apply digital bitbucket
-Host bitbucket.org
-UseKeychain yes
-HostName bitbucket.org
-IdentityFile ~/.ssh/id_rsa_bb_leo_ad
+# scratchpay
+Host git.scratchpay.com
+  ProxyCommand /usr/local/bin/cloudflared access ssh --hostname %h
+  IdentityFile ~/.ssh/id_rsa
