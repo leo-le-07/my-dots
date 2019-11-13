@@ -2,6 +2,8 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=/usr/local/opt/libpq/bin:$PATH
 export PATH=$HOME/.yarn/bin:$PATH
+export GOPATH=$HOME/dev/go-workspaces
+export PATH=$GOPATH/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/leo/.oh-my-zsh"
