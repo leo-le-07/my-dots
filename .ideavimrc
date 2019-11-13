@@ -1,0 +1,7 @@
+imap jj <esc>
+nmap j gj
+nmap k gk
+
+set surround
+set multiple-cursors
+set commentary
