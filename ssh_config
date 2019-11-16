@@ -10,4 +10,4 @@ IdentityFile ~/.ssh/id_rsa
 # scratchpay
 Host git.scratchpay.com
   ProxyCommand /usr/local/bin/cloudflared access ssh --hostname %h
-  IdentityFile ~/.ssh/id_rsa
+  IdentityFile ~/.ssh/scratchpay_id_rsa
