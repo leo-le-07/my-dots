@@ -2,7 +2,8 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=/usr/local/opt/libpq/bin:$PATH
 export PATH=$HOME/.yarn/bin:$PATH
-export PATH=$HOME/.nvm/versions/node/v.10.16.0/bin:$PATH
+export GOPATH=$HOME/dev/go-workspaces
+export PATH=$GOPATH/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/leo/.oh-my-zsh"
@@ -186,3 +187,10 @@ alias dcr='docker run --rm'
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/leo/dev/codelink/payment-services/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/leo/dev/codelink/payment-services/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/leo/dev/codelink/payment-services/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/leo/dev/codelink/payment-services/google-cloud-sdk/completion.zsh.inc'; fi

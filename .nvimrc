@@ -12,6 +12,9 @@ Plug 'junegunn/fzf.vim'
 " auto-close
 Plug 'jiangmiao/auto-pairs'
 
+" golang
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 " Intellisense engine
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -76,13 +79,12 @@ syntax enable
 let g:one_allow_italics = 1
 
 " === === enable dark theme
-" set background=dark
-" let g:dracula_italic=0
-" colorscheme dracula
+set background=dark
+let g:dracula_italic=0
+colorscheme dracula
 
-colorscheme night-owl
-" To enable the lightline theme
-let g:lightline = { 'colorscheme': 'nightowl' }
+" colorscheme night-owl
+" let g:lightline = { 'colorscheme': 'nightowl' }
 
 " === === background transparency
 hi Normal ctermbg=NONE guibg=NONE
@@ -107,6 +109,10 @@ nnoremap <C-f> :Rg<Cr>
 nnoremap K :Rg! <C-R><C-W><CR>
 
 " === end fzf
+" === golang settings
+let g:go_fmt_command = "goimports"
+let g:go_auto_type_info = 1
+" === end golang
 
 " === coc.nvim
 set hidden
