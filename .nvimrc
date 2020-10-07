@@ -5,94 +5,44 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-" auto-close
-Plug 'jiangmiao/auto-pairs'
-
 " added nerdtree
 Plug 'scrooloose/nerdtree'
-
-" commenter
-Plug 'scrooloose/nerdcommenter'
-
-" themes
-Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'rakr/vim-one'
-Plug 'haishanh/night-owl.vim'
 
 " navigate seamlessly between vim and tmux splits using a consistent set of hotkeys
 Plug 'christoomey/vim-tmux-navigator'
 
-" repeat
 Plug 'tpope/vim-repeat'
 
-" easy-motion
-Plug 'easymotion/vim-easymotion'
+" theme
+Plug 'dracula/vim', { 'as': 'dracula' }
+" Plug 'morhetz/gruvbox'
+" Plug 'mhartington/oceanic-next'
 
-" git
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
+" fzf
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
-" nvim-lspconfig
-Plug 'neovim/nvim-lspconfig'
+" LanguageClient-neovim
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+
+" deoplete
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+" javascript syntax highlighting
+" Plug 'pangloss/vim-javascript'
+" syntax highlighting
+Plug 'sheerun/vim-polyglot'
+
+" golang
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
 
 " === remapping leader character
 let mapleader = ","
-
-" === THEMS/COLORS
-if (has("termguicolors"))
- set termguicolors
-endif
-syntax enable
-let g:one_allow_italics = 1
-
-" === === enable dark theme
-set background=dark
-let g:dracula_italic=0
-colorscheme dracula
-
-" === === background transparency
-hi Normal ctermbg=NONE guibg=NONE
-
-" === easymotion
-nmap <Leader>f <Plug>(easymotion-bd-w)
-
-" === scrooloose/nerdcommenter
-let g:NERDSpaceDelims = 1
-
-" === airblade/vim-gitgutter
-let g:gitgutter_max_signs = 500
-let g:gitgutter_map_keys = 0 " remove mapping keys vim-gitgutter
-
-" === alvan/vim-closetag
-let g:closetag_filenames = "*.html.erb,*.html,*.xhtml,*.phtml"
-
-" === vim-airline/vim-airline-themes
-let g:airline_theme='papercolor'
-
-" === vim-airline
-let g:airline#extensions#branch#enabled = 0
-
-" === NERDTree
-let NERDTreeShowLineNumbers=1
-let NERDTreeShowHidden=1 " hide hidden file by default
-map <leader>n :NERDTreeFind<CR>
-map <C-n> :NERDTreeToggle<CR>
-
-" === end NERDTree
-
-" === nvim-lspconfig
-lua << EOF
-require'nvim_lsp'.gopls.setup{}
-EOF
-
-set completeopt-=preview
-" === end nvim-lspconfig
-
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
 
 " === MAPPING KEYS
 imap jj <esc>
@@ -110,23 +60,115 @@ nmap <leader>te :tabe %<cr>
 " === === Common settings
 set relativenumber
 set number
-set colorcolumn=80
 set hlsearch
 set ignorecase
 set smartcase
 set list
 set tabstop=2 shiftwidth=2 expandtab
 
-" === === Set hightlight current row and column
-set cursorline
-set cursorcolumn
-
-" === === Cursor settings
-set termguicolors
-hi Cursor guifg=white guibg=black
-hi Search guibg=peru guifg=wheat
-
 " === end EDITOR SETTINGS
 
 " === quick source neovim and install plug plugins
 nmap <leader>so :source ~/.config/nvim/init.vim<cr>:PlugInstall<cr>
+
+
+" === Clipboard
+set clipboard+=unnamedplus
+function! ClipboardYank()
+  call system('xclip -i -selection clipboard', @@)
+endfunction
+function! ClipboardPaste()
+  let @@ = system('xclip -o -selection clipboard')
+endfunction
+
+vnoremap <silent> y y:call ClipboardYank()<cr>
+nnoremap <silent> p :call ClipboardPaste()<cr>p
+
+" === end Clipboard
+
+" === vim-airline/vim-airline-themes
+let g:airline_theme='papercolor'
+" let g:airline_theme='oceanicnext'
+
+" === vim-airline
+let g:airline#extensions#branch#enabled = 0
+
+" == theme
+" gruvbox
+" autocmd vimenter * colorscheme gruvbox
+
+" oceanic-next
+" let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+" if (has("termguicolors"))
+"  set termguicolors
+" endif
+" syntax on
+" let g:oceanic_next_terminal_bold = 1
+" let g:oceanic_next_terminal_italic = 1
+" colorscheme OceanicNext
+
+" dracula
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+if (has("termguicolors"))
+ set termguicolors
+endif
+syntax on
+let g:one_allow_italics = 1
+set background=dark
+let g:dracula_italic=0
+colorscheme dracula
+
+" == end theme
+
+" === NERDTree
+let NERDTreeShowLineNumbers=1
+let NERDTreeShowHidden=1 " hide hidden file by default
+map <leader>n :NERDTreeFind<CR>
+map <C-n> :NERDTreeToggle<CR>
+
+" === end NERDTree
+
+" === fzf
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --hidden --ignore-case --no-heading --color=always '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:60%')
+  \           : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '?'),
+  \   <bang>0)
+nnoremap <C-p> :Files<Cr>
+nnoremap <C-e> :History<Cr>
+nnoremap <C-b> :Buffers<Cr>
+nnoremap <C-f> :Rg<Cr>
+nnoremap K :Rg! <C-R><C-W><CR>
+
+" === end fzf
+
+" === LanguageClient-neovim
+" Required for operations modifying multiple buffers like rename.
+set hidden
+
+let g:LanguageClient_serverCommands = {
+    \ 'javascript': ['javascript-typescript-stdio'],
+    \ 'javascript.jsx': ['javascript-typescript-stdio'],
+    \ 'go': ['gopls'],
+    \ }
+
+nmap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nmap <silent> gr :call LanguageClient#textDocument_rename()<CR>
+nmap <silent> gx :call LanguageClient#textDocument_references()<CR>
+nmap <silent> gc :call LanguageClient#textDocument_completion()<CR>
+nmap <silent> gh :call LanguageClient#textDocument_hover()<CR>
+nmap <silent> gm :call LanguageClient_contextMenu()<CR>
+nmap <silent> gf :call LanguageClient#textDocument_formatting()<CR>
+nmap <silent> gt :call LanguageClient#textDocument_typeDefinition()<CR>
+
+" === end LanguageClient-neovim
+
+" === deoplete
+let g:deoplete#enable_at_startup = 1
+
+" === golang
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+" Run gofmt on save
+autocmd BufWritePre *.go :call LanguageClient#textDocument_formatting_sync()
