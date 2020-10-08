@@ -13,6 +13,9 @@ Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'tpope/vim-repeat'
 
+" easy-motion
+Plug 'easymotion/vim-easymotion'
+
 " theme
 Plug 'dracula/vim', { 'as': 'dracula' }
 " Plug 'morhetz/gruvbox'
@@ -27,6 +30,9 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
+
+" ale
+Plug 'dense-analysis/ale'
 
 " deoplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -119,6 +125,9 @@ let g:dracula_italic=0
 colorscheme dracula
 
 " == end theme
+
+" === easymotion
+nmap <Leader>f <Plug>(easymotion-bd-w)
 
 " === NERDTree
 let NERDTreeShowLineNumbers=1
