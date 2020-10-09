@@ -17,8 +17,8 @@ Plug 'tpope/vim-repeat'
 Plug 'easymotion/vim-easymotion'
 
 " theme
-Plug 'dracula/vim', { 'as': 'dracula' }
-" Plug 'morhetz/gruvbox'
+" Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'morhetz/gruvbox'
 " Plug 'mhartington/oceanic-next'
 
 " fzf
@@ -71,6 +71,8 @@ set ignorecase
 set smartcase
 set list
 set tabstop=2 shiftwidth=2 expandtab
+" clear highlighting
+nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 
 " === end EDITOR SETTINGS
 
@@ -100,8 +102,14 @@ let g:airline_theme='papercolor'
 let g:airline#extensions#branch#enabled = 0
 
 " == theme
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+if (has("termguicolors"))
+ set termguicolors
+endif
+syntax on
+
 " gruvbox
-" autocmd vimenter * colorscheme gruvbox
+autocmd vimenter * colorscheme gruvbox
 
 " oceanic-next
 " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -114,15 +122,10 @@ let g:airline#extensions#branch#enabled = 0
 " colorscheme OceanicNext
 
 " dracula
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-if (has("termguicolors"))
- set termguicolors
-endif
-syntax on
-let g:one_allow_italics = 1
-set background=dark
-let g:dracula_italic=0
-colorscheme dracula
+" let g:one_allow_italics = 1
+" set background=dark
+" let g:dracula_italic=0
+" colorscheme dracula
 
 " == end theme
 
@@ -162,7 +165,7 @@ let g:LanguageClient_serverCommands = {
     \ 'go': ['gopls'],
     \ }
 
-nmap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nmap <silent> gd :call LanguageClient#textDocument_definition({'gotoCmd': 'split'})<CR>
 nmap <silent> gr :call LanguageClient#textDocument_rename()<CR>
 nmap <silent> gx :call LanguageClient#textDocument_references()<CR>
 nmap <silent> gc :call LanguageClient#textDocument_completion()<CR>
