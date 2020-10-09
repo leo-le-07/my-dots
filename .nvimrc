@@ -21,10 +21,6 @@ Plug 'easymotion/vim-easymotion'
 Plug 'morhetz/gruvbox'
 " Plug 'mhartington/oceanic-next'
 
-" fzf
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-
 " LanguageClient-neovim
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
@@ -33,6 +29,10 @@ Plug 'autozimu/LanguageClient-neovim', {
 
 " ale
 Plug 'dense-analysis/ale'
+
+" fzf
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 " deoplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -132,14 +132,6 @@ autocmd vimenter * colorscheme gruvbox
 " === easymotion
 nmap <Leader>f <Plug>(easymotion-bd-w)
 
-" === NERDTree
-let NERDTreeShowLineNumbers=1
-let NERDTreeShowHidden=1 " hide hidden file by default
-map <leader>n :NERDTreeFind<CR>
-map <C-n> :NERDTreeToggle<CR>
-
-" === end NERDTree
-
 " === fzf
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
@@ -147,13 +139,21 @@ command! -bang -nargs=* Rg
   \   <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:60%')
   \           : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '?'),
   \   <bang>0)
-nnoremap <C-p> :Files<Cr>
+nnoremap <C-o> :Files<Cr>
+nnoremap <C-f> :Rg<Cr>
 nnoremap <C-e> :History<Cr>
 nnoremap <C-b> :Buffers<Cr>
-nnoremap <C-f> :Rg<Cr>
 nnoremap K :Rg! <C-R><C-W><CR>
 
 " === end fzf
+
+" === NERDTree
+let NERDTreeShowLineNumbers=1
+let NERDTreeShowHidden=1 " hide hidden file by default
+map <leader>n :NERDTreeFind<CR>
+map <C-n> :NERDTreeToggle<CR>
+
+" === end NERDTree
 
 " === LanguageClient-neovim
 " Required for operations modifying multiple buffers like rename.
