@@ -18,8 +18,11 @@ Plug 'easymotion/vim-easymotion'
 
 " theme
 " Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'morhetz/gruvbox'
 " Plug 'mhartington/oceanic-next'
+Plug 'morhetz/gruvbox'
+
+" markdown preview
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 " LanguageClient-neovim
 Plug 'autozimu/LanguageClient-neovim', {
@@ -31,8 +34,8 @@ Plug 'autozimu/LanguageClient-neovim', {
 Plug 'dense-analysis/ale'
 
 " fzf
-Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " deoplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -72,7 +75,7 @@ set smartcase
 set list
 set tabstop=2 shiftwidth=2 expandtab
 " clear highlighting
-nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
+" nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 
 " === end EDITOR SETTINGS
 
@@ -139,7 +142,7 @@ command! -bang -nargs=* Rg
   \   <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:60%')
   \           : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '?'),
   \   <bang>0)
-nnoremap <C-o> :Files<Cr>
+nnoremap <C-p> :GFiles<Cr>
 nnoremap <C-f> :Rg<Cr>
 nnoremap <C-e> :History<Cr>
 nnoremap <C-b> :Buffers<Cr>
