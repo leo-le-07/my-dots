@@ -9,7 +9,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
 
 " navigate seamlessly between vim and tmux splits using a consistent set of hotkeys
-Plug 'christoomey/vim-tmux-navigator'
+" Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'tpope/vim-repeat'
 
